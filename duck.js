@@ -17,10 +17,10 @@ const myGameArea = {
     this.canvas.style.top = '50%';
     this.canvas.style.border = "1px solid #000";
     this.canvas.style.transform = 'translate(-50%, -50%)';
+        
+    if (location.pathname.includes("/gamehard.html")) {
 
-
-    console.log(location.pathname)
-    if (location.pathname === "./gamehard.html") {
+    //if (location.pathname === "/gamehard.html") {
       this.speed = 20;
       this.spaceBetween = 70;
       this.victoryFlag = 500;
@@ -38,7 +38,7 @@ const myGameArea = {
 
   stop: function () {
     clearInterval(this.interval);
-    const audio = new Audio('./resources/quack-quack.mp3');
+    const audio = new Audio('./resources/laugthing.mp3');
     audio.play();
 
     const gameoverButton = new Image();
@@ -58,7 +58,7 @@ const myGameArea = {
 
   winner: function () {
     clearInterval(this.interval);
-    const victorySound = new Audio('./resources/Pato.mp3');
+    const victorySound = new Audio('./resources/nervous.mp3');
     victorySound.play();
 
     const victoryImage = new Image();
@@ -117,6 +117,8 @@ function handleCanvasClick(event) {
       mouseY >= obstacle.y &&
       mouseY <= obstacle.y + obstacle.height
     ) {
+      const audio = new Audio('./resources/shot.mp3');
+      audio.play();
       hit = true;
       myGameArea.points += 10;
       break;
