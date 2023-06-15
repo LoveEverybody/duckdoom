@@ -18,7 +18,7 @@ const myGameArea = {
     this.canvas.style.border = "1px solid #000";
     this.canvas.style.transform = 'translate(-50%, -50%)';
 
-    if (location.pathname === "/gamehard.html") {
+    if (location.pathname === "./gamehard.html") {
       this.speed = 20;
       this.spaceBetween = 70;
       this.victoryFlag = 500;
