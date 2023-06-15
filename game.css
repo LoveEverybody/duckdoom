@@ -1,0 +1,8 @@
+* {
+    cursor: crosshair;
+  }
+ 
+  body {
+    background-image: url("./resources/fundogd.jpg");
+    background-size: cover;
+  }
