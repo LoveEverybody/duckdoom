@@ -3,6 +3,68 @@
   }
  
   body {
-    background-image: url("./resources/back.jpg");
+    background-image: url("./resources/back2.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
   }
+  
+ /* CSS */
+ #duck-doom {
+  /* Estilos do "Duck Doom" */
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 72px;
+  color: #ff0000;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  top: 50px; /* Ajuste o valor conforme necessário para mover o "Duck Doom" para cima */
+}
+
+#phrase1 {
+  /* Estilos para a primeira frase */
+  position: absolute;
+  top: 150px;
+  left: 20px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #00ff00;
+  text-transform: uppercase;
+}
+
+#phrase2 {
+  /* Estilos para a segunda frase */
+  position: absolute;
+  top: 180px;
+  right: 20px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: #00ff00;
+  text-transform: uppercase;
+}
+
+#phrase3 {
+  /* Estilos para a terceira frase */
+  position: absolute;
+  top: 250px; /* Ajuste o valor para posicionar a frase abaixo do "Duck Doom" */
+  left: 20px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #00ff00;
+  text-transform: uppercase;
+}
+
+#phrase4 {
+  position: absolute;
+  top: 550px;
+  right: 20px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: #00ff00;
+  text-transform: uppercase;
+}

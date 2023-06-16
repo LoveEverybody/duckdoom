@@ -30,6 +30,10 @@ const myGameArea = {
     this.context = this.canvas.getContext('2d');
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     this.canvas.addEventListener('click', handleCanvasClick);
+
+    this.context.font = "20px 'Comic Sans MS', cursive";
+    this.context.fillStyle = 'black';
+    this.context.fillText("Score: 0", 370, 30);
     this.interval = setInterval(updateGameArea, 20 / this.speed);
   },
   clear: function () {
@@ -87,7 +91,7 @@ class Component {
     this.x = x;
     this.y = y;
     this.img = new Image()
-    this.img.src = './resources/patim-see.png'
+    this.img.src = './resources/duck.png'
   }
 
   update() {
@@ -138,7 +142,7 @@ function handleCanvasClick(event) {
      myGameArea.firstNumber  = Math.floor(Math.random() * 9) + 1;
      myGameArea.secondNumber = Math.floor(Math.random() * 9) + 1;
      const mult = myGameArea.firstNumber*myGameArea.secondNumber
-     myGameArea.context.fillText(`${myGameArea.firstNumber} x ${myGameArea.secondNumber} = ${mult} `, 20, 30);
+     myGameArea.context.fillText(`${myGameArea.firstNumber} x ${myGameArea.secondNumber} = ${mult} `, 30, 30);
 
      myGameArea.firstNumber = 0;
 
@@ -147,7 +151,7 @@ function handleCanvasClick(event) {
 
   if (myGameArea.points >= myGameArea.victoryFlag) {
     myGameArea.winner();
-  }
+  } 
 }
 
 
