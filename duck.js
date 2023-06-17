@@ -8,8 +8,7 @@ const myGameArea = {
   victoryFlag: 100,
   firstNumber: 0,
   secondNumber: 0,
-  start: function () {
-
+  start: function() {
     this.canvas.width = 480;
     this.canvas.height = 270;
     this.canvas.style.position = 'absolute';
@@ -17,10 +16,8 @@ const myGameArea = {
     this.canvas.style.top = '50%';
     this.canvas.style.border = "1px solid #000";
     this.canvas.style.transform = 'translate(-50%, -50%)';
-        
-    if (location.pathname.includes("/gamehard.html")) {
 
-    //if (location.pathname === "/gamehard.html") {
+    if (location.pathname.includes("/gamehard.html")) {
       this.speed = 20;
       this.spaceBetween = 70;
       this.victoryFlag = 500;
@@ -36,58 +33,52 @@ const myGameArea = {
     this.context.fillText("Score: 0", 370, 30);
     this.interval = setInterval(updateGameArea, 20 / this.speed);
   },
-  clear: function () {
+  clear: function() {
     this.context.clearRect(0, 30, this.canvas.width, this.canvas.height);
   },
 
-  stop: function () {
+  stop: function() {
     clearInterval(this.interval);
     const audio = new Audio('./resources/laugthing.mp3');
     audio.play();
 
-    const gameoverButton = new Image();
-    gameoverButton.src = './resources/gameover.png';
-    gameoverButton.style.position = 'absolute';
-    gameoverButton.style.left = '50%';
-    gameoverButton.style.top = '50%';
-    gameoverButton.style.transform = 'translate(-50%, -50%)';
-    gameoverButton.style.width = '100px';
-    gameoverButton.style.height = '100px';
-    gameoverButton.style.cursor = 'pointer';
-    gameoverButton.addEventListener('click', function () {
+    const gameoverButton = createImageButton('./resources/gameover.png', function() {
       window.location.href = 'index.html';
     });
     document.body.appendChild(gameoverButton);
   },
 
-  winner: function () {
+  winner: function() {
     clearInterval(this.interval);
     const victorySound = new Audio('./resources/nervous.mp3');
     victorySound.play();
 
-    const victoryImage = new Image();
-    victoryImage.src = './resources/winner2.jpg';
-    victoryImage.style.position = 'absolute';
-    victoryImage.style.left = '50%';
-    victoryImage.style.top = '50%';
-    victoryImage.style.transform = 'translate(-50%, -50%)';
-    victoryImage.style.width = '100px';
-    victoryImage.style.height = '100px';
-    victoryImage.style.cursor = 'pointer';
-    victoryImage.addEventListener('click', function () {
+    const victoryImage = createImageButton('./resources/winner2.jpg', function() {
       window.location.href = 'index.html';
     });
+    victoryImage.style.borderRadius = '50%';
     document.body.appendChild(victoryImage);
   },
-
 };
 
+function createImageButton(src, onClickHandler) {
+  const imageButton = new Image();
+  imageButton.src = src;
+  imageButton.style.position = 'absolute';
+  imageButton.style.left = '50%';
+  imageButton.style.top = '50%';
+  imageButton.style.transform = 'translate(-50%, -50%)';
+  imageButton.style.width = '100px';
+  imageButton.style.height = '100px';
+  imageButton.style.cursor = 'pointer';
+  imageButton.addEventListener('click', onClickHandler);
+  return imageButton;
+}
+
 class Component {
-  // constructor(width, height, color, x, y) {
   constructor(width, height, x, y) {
     this.width = width;
     this.height = height;
-    //this.color = color;
     this.x = x;
     this.y = y;
     this.img = new Image()
@@ -96,8 +87,6 @@ class Component {
 
   update() {
     const ctx = myGameArea.context;
-    //ctx.fillStyle = this.color;
-    //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
   }
 

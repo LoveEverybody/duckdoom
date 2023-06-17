@@ -1,8 +1,23 @@
-* {
+  * {
     cursor: crosshair;
   }
  
   body {
-    background-image: url("./resources/backhard.jpg");
+    background-image: url("./resources/back2hard.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
   }
+  
+ /* CSS */
+ #duck-doom {
+  /* Estilos do "Duck Doom" */
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 72px;
+  color: #ff0000;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  top: 50px; /* Ajuste o valor conforme necessário para mover o "Duck Doom" para cima */
+}
